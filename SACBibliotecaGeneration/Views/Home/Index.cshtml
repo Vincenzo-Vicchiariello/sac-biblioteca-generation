@@ -1,8 +1,54 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    @model List<Book>
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="text-center ">
+    <table class="table border-secondary">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col" >Titolo</th>
+                <th scope="col" >Descrizione</th>
+                <th scope="col">Autore</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+      
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Book book in Model)
+            {
+                <tr>
+                    <td><img class="img-fluid img_square min-vw-300" height="500"  src=@book.ImgUrl alt="@book.Name"></td>
+                    <th scope="row">@book.Name</th>
+                    <td>@book.Description</td>
+                    <td>@book.Author</td>
+                    <td>@if(book.IsAvailable == true)
+                        {
+                            <span>Il libro è disponibile!</span>
+                        <td>
+                            <button type="button" class="btn btn-success">Prenota</button>
+                        </td>
+
+                        }else
+                        {
+                            <span>Il libro non è disponibile.</span>
+                        <td>
+                            <button type="button" class="btn btn-success" disabled>Prenota</button>
+                        </td>
+                        }
+
+                    </td>
+
+                  
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
 </div>

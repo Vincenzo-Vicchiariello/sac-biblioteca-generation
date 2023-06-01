@@ -1,3 +1,5 @@
+using SACBibliotecaGeneration.DataBase;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -23,5 +25,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
 app.Run();
+
+builder.Services.AddDbContext<BookContext>();
