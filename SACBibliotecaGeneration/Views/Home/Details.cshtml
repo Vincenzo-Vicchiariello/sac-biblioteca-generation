@@ -1,0 +1,50 @@
+﻿@model Book
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="@Model.ImgUrl" class="img-fluid rounded-start" alt="Immagine @Model.Name">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h2 class="card-title">@Model.Name</h2>
+                <h2 class="card-title">@Model.Author</h2>
+                <p class="card-text">@Model.Description</p>
+                @if (Model.IsAvailable == true)
+                {
+
+                    <button type="button" class="btn btn-success">Prenota</button>
+
+
+                }
+                else
+                {
+
+
+                    <button type="button" class="btn btn-success" disabled>Prenota</button>
+
+                }
+                @if (Model.EBook == true)
+                {
+
+
+                    <button type="button" class="btn btn-success">Scarica</button>
+
+                }
+                else
+                {
+                    <button type="button" class="btn btn-success" disabled>Scarica</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

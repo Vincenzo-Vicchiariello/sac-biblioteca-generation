@@ -13,6 +13,7 @@ namespace SACBibliotecaGeneration.Models
         public string Description { get; set; }
         public string ImgUrl { get; set; }
         public bool IsAvailable { get; set; }
+        public bool EBook { get; set; }
 
 
         public Book()
@@ -20,13 +21,14 @@ namespace SACBibliotecaGeneration.Models
 
         }
 
-        public Book(string name, string author, string description, string imgUrl, bool isAvailable)
+        public Book(string name, string author, string description, string imgUrl, bool isAvailable, bool eBook)
         {
             Name = name;
             Author = author;
             Description = description;
             ImgUrl = imgUrl;
             IsAvailable = isAvailable;
+            EBook = eBook;
         }
 
 

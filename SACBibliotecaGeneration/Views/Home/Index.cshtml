@@ -6,14 +6,22 @@
 
 <div class="text-center ">
     <table class="table border-secondary">
+        <a class="btn btn-primary" href="@Url.Action("Create", "Home")">
+            Inserisci Nuovo Libro
+        </a>
         <thead>
             <tr>
                 <th scope="col"></th>
                 <th scope="col" >Titolo</th>
                 <th scope="col" >Descrizione</th>
                 <th scope="col">Autore</th>
+                <th scope="col">Disponibilità</th>
+                <th scope="col">E-Book</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+
       
 
 
@@ -30,22 +38,81 @@
                     <td>@if(book.IsAvailable == true)
                         {
                             <span>Il libro è disponibile!</span>
-                        <td>
-                            <button type="button" class="btn btn-success">Prenota</button>
-                        </td>
+                       
 
                         }else
                         {
                             <span>Il libro non è disponibile.</span>
-                        <td>
-                            <button type="button" class="btn btn-success" disabled>Prenota</button>
-                        </td>
+                        
                         }
 
                     </td>
+                    <td>
+                        @if (book.EBook == true)
+                        {
+                            <span>Il libro è disponibile anche come E-Book.</span>
 
-                  
+
+                        }
+                        else
+                        {
+                            <span>Il libro non è disponibile come E-Book.</span>
+
+                        }
+
+                    <td>
+                        @if (book.IsAvailable == true)
+                        {
+                        
+                            <button type="button" class="btn btn-success">Prenota</button>
+                       
+
+                        }
+                        else
+                        {
+
+                        
+                            <button type="button" class="btn btn-success" disabled>Prenota</button>
+                        
+                        }
+
+            
+
+                    </td>
+                    <td>
+                            @if (book.EBook == true)
+                            {
+
+                   
+                            <button type="button" class="btn btn-success">Scarica</button>
+                        
+                            }
+                            else
+                            {
+                            <button type="button" class="btn btn-success" disabled>Scarica</button>
+                            }
+
+                    </td>
+                   
+
+                    <td>
+                        <div class="col-12 d-flex">
+                            <a href="/home/details/@book.Id" class="btn btn-secondary">Dettagli</a>
+                        </div>
+                    </td>
+                    <td>
+                        <form asp-route-id="@book.Id" asp-controller="Home" asp-action="Delete" method="post">
+                                @Html.AntiForgeryToken()
+                            <div class="col-12 d-flex">
+                                <button class="btn btn-danger ">Elimina</button>
+                            </div>
+                        </form>
+                    </td>
                 </tr>
+               
+
+
+
             }
 
 
